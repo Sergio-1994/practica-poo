@@ -1,5 +1,5 @@
 
-from Persona import Persona
+from persona import Persona
 
 
 class Medico(Persona):
