@@ -1,8 +1,13 @@
 from datetime import datetime
 from examen import Examen
+from factura import Factura
+
 
 ordenes = []
+
 class Orden:
+
+
     def __init__(self, medico_tratante, numero_orden, paciente):
         self.fecha_solicitud = datetime.now()
         self.fecha_ingreso = datetime.now()
@@ -12,8 +17,14 @@ class Orden:
     
     def get_numero_orden(self):
         return self.numero_orden
+    
 
-    def registrar_orden(self, orden):
+
+    def registrar_orden(self, orden, pos):
+        if(pos == 1):
+            factura = Factura(1,15000,self.paciente,self.numero_orden) 
+            factura.crear_factura(factura)
+
         ordenes.append(orden)
         print("\nOrden registrada con éxito")
         print(self.get_data())

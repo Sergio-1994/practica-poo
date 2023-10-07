@@ -1,4 +1,5 @@
 from paciente import Paciente
+from factura import facturas 
 
 switch = True
 menu = "\n***** Laboratorio clínico Konoha SAS *****\n\
@@ -25,8 +26,8 @@ while switch:
             fecha_nacimiento = input("Ingrese la fecha de nacimiento, por favor: ")
             pos = int(input("¿Cuál es su plan plan obligatorio de salud: particular(1) subsidiado(2)? "))
             email = input("Ingrese su email, por favor: ")
-            nombre_pariente = input("Ingrese el nombre del pariente, por favor: ")
-            contacto_pariente = input("Ingrese el contacto del pariente, por favor: ")
+            nombre_pariente = input("Ingrese el nombre del paciente, por favor: ")
+            contacto_pariente = input("Ingrese el contacto del paciente, por favor: ")
             pacient = Paciente(
                 tipo_documento,
                 numero_documento,
@@ -46,7 +47,8 @@ while switch:
             pacient.solicitar_examen(pacient)
 
     elif option == 2:
-        print("Consultando factura")
+        for i in facturas:
+            print(i.get_paciente())
     elif option == 3:
         print("Médico con mas pacientes")
     elif option == 4:
